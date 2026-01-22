@@ -210,20 +210,24 @@ def main(url1, url2, date):
             # print(f"Fight Processed:{i}/8001")
             # i+=1
 
-    
-    f1_stats = previousfightData(linkId_dict[url1], date)
-    f2_stats = previousfightData(linkId_dict[url2], date)
-    stats_dif = {
-    "kd_diff": f1_stats['kd'] - f2_stats['kd'],
-    "sig_strike_diff": f1_stats['sig_strike'] - f2_stats['sig_strike'],
-    "total_strikes_diff": f1_stats['total_strikes'] - f2_stats['total_strikes'],
-    "td_diff": f1_stats['td'] - f2_stats['td'],
-    "ctrl_time_diff": f1_stats['ctrl_time'] - f2_stats['ctrl_time'],
-    "height_diff": f1_stats['Height'] - f2_stats['Height'],
-    "weight_diff": int(f1_stats['Weight']) - int(f2_stats['Weight']),
-    "reach_diff": int(f1_stats['Reach']) - int(f2_stats['Reach']),
-    "age_diff": int(f1_stats['Age']) - int(f2_stats['Age']),
-    "winrate_diff": f1_stats['Winrate'] - f2_stats['Winrate'],
+    try:
+        f1_stats = previousfightData(linkId_dict[url1], date)
+        f2_stats = previousfightData(linkId_dict[url2], date)
+        stats_dif = {
+        "kd_diff": f1_stats['kd'] - f2_stats['kd'],
+        "sig_strike_diff": f1_stats['sig_strike'] - f2_stats['sig_strike'],
+        "total_strikes_diff": f1_stats['total_strikes'] - f2_stats['total_strikes'],
+        "td_diff": f1_stats['td'] - f2_stats['td'],
+        "ctrl_time_diff": f1_stats['ctrl_time'] - f2_stats['ctrl_time'],
+        "height_diff": f1_stats['Height'] - f2_stats['Height'],
+        "weight_diff": int(f1_stats['Weight']) - int(f2_stats['Weight']),
+        "reach_diff": int(f1_stats['Reach']) - int(f2_stats['Reach']),
+        "age_diff": int(f1_stats['Age']) - int(f2_stats['Age']),
+        "winrate_diff": f1_stats['Winrate'] - f2_stats['Winrate'],
+   
     }
+    except:
+        print("bum ty miller")
+        return -1
     return stats_dif
         
