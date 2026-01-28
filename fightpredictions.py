@@ -37,6 +37,7 @@ def main():
 
             results.append((lr.predict_fight(url1, url2, date), name1, name2))
 
+        printLines = False
         for fight in results:
             if fight[0] == 0:
                 print(fight[1] + " > " + fight[2])
@@ -44,7 +45,8 @@ def main():
                 print(fight[2] + " > " + fight[1])
             else:
                 print("Skipped: " + fight[1] + " vs " + fight[2])
-            print("––––––––––––––––––––––––––––––––––")
+            if (printLines):
+                print("––––––––––––––––––––––––––––––––––")
 
     except requests.exceptions.RequestException as e:
         print(f"An error occurred: {e}")
