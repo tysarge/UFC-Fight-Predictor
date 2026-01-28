@@ -98,18 +98,16 @@ def predict_fight(url1,url2,date):
 
     stats = organize.main(url1, url2, date)
 
-    if (stats == -1):
-        z = 0
-    else:
+    if (stats != -1):
         array = np.array([float(stats[f]) for f in featureOrder]).reshape(1, -1)
 
         prediction = logreg.predict(array)
         print()
         if prediction[0] == 1:
         
-            return "Expect Fighter 1 Win"
+            return 0
         else:
             
-            return "Expect Fighter 2 Win"
-    return "SKIP"
+            return 1
+    return 2
 

@@ -227,7 +227,6 @@ def main(url1, url2, date):
    
     }
     except:
-        print("bum ty miller")
         return -1
     return stats_dif
         
