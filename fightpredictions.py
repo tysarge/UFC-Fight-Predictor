@@ -5,6 +5,15 @@ import logreg as lr
 fight_url = input("Enter fight url: ")
 
 
+
+def getName(url):
+    response = requests.get(url)
+    response.raise_for_status()
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    
+
+
 def main():
     try:
         response = requests.get(fight_url)
@@ -26,7 +35,7 @@ def main():
             list = row.find_all('a',limit=2)
             url1 = list[0]["href"].strip()
             url2 = list[1]["href"].strip()
-
+            
             results.append(lr.predict_fight(url1,url2,date))
         
         for i in results:
